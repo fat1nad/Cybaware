@@ -35,8 +35,11 @@ public class LTScreenSwitch : MonoBehaviour
         normalBrowser.SetActive(true);
         normalBrowser.transform.GetChild(0).gameObject.SetActive(false);
         normalBrowser.transform.GetChild(1).gameObject.SetActive(true);
-        
+
         //Setup Comfortworld page
+        comfortWorldPage.transform.GetChild(0).gameObject.SetActive(true);
+        comfortWorldPage.transform.GetChild(1).gameObject.SetActive(false);
+        comfortWorldPage.transform.GetChild(3).gameObject.SetActive(false);
         comfortWorldPage.SetActive(false);
         
         //Setup SweetDreamsPage
@@ -71,5 +74,12 @@ public class LTScreenSwitch : MonoBehaviour
         mainItem.SetActive(false);
         report.SetActive(true);
         report.transform.GetChild(3).gameObject.SetActive(true);
+    }
+
+    public void InsecureScame ()
+    {
+        comfortWorldPage.transform.GetChild(0).gameObject.SetActive(false);
+        comfortWorldPage.transform.GetChild(1).gameObject.SetActive(false);
+        comfortWorldPage.transform.GetChild(3).gameObject.SetActive(true);
     }
 }
