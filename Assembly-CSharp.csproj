@@ -56,7 +56,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BreathingEffect.cs" />
-     <Compile Include="Assets\Scripts\LTScreenSwitch.cs" />
      <Compile Include="Assets\Scripts\LoadScenario.cs" />
      <Compile Include="Assets\Scripts\MainMenuMGR.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
