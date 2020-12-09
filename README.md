@@ -1,7 +1,7 @@
 # Cybaware
 Cybaware is a collection of short games that focus on different aspects of cybersecurity
 
-# The Team: 
+## The Team: 
   1. Muhammad Shahrom Ali
   2. Farooq Abdul Rehman
   3. Roha Ali Khan 
