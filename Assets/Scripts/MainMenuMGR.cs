@@ -31,15 +31,19 @@ public class MainMenuMGR : MonoBehaviour
     #endregion
 
     #region Methods
-
+    private AudioSource audio;
+    public AudioClip hover;
     void Start()
     {
         ToStartScreen();
-    }
+        audio = GetComponent<AudioSource>();
+        Debug.Log("sdfd");
+        
 
+    }
     // Update is called once per frame
     void Update()
-    {   
+    {
         if (StartCVS.gameObject.activeSelf)
         {//On Start Screen
             if (Input.anyKeyDown)
@@ -50,6 +54,11 @@ public class MainMenuMGR : MonoBehaviour
                     ProfileSelection();
             }
         }
+    }
+    void MouseEnter()
+    {
+        Debug.Log("aly audioo");
+        audio.PlayOneShot(hover);
     }
 
     public void ProfileSelection()
@@ -80,7 +89,7 @@ public class MainMenuMGR : MonoBehaviour
     {
         DisableAllCVS();
         ScenarioCVS.gameObject.SetActive(true);
-    }    
+    }
 
     public void ToMainMenu()
     {
