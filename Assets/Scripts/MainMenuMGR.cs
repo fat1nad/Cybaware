@@ -50,8 +50,15 @@ public class MainMenuMGR : MonoBehaviour
             {//if pressed escape, quit confirmation. else  go to main menu
                 if (Input.GetKeyDown(KeyCode.Escape))
                     QuitConfirmation();
+                else if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Mouse2) || Input.GetKeyDown(KeyCode.Mouse3))
+                {
+                    Debug.Log("MousebuttonsClicked");
+                }
                 else
+                {
                     ProfileSelection();
+                }
+                    
             }
         }
     }
