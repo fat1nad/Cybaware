@@ -6406,7 +6406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!223 &874197710
 Canvas:
   m_ObjectHideFlags: 0
@@ -8426,32 +8426,32 @@ PrefabInstance:
     - target: {fileID: 4014856608379128837, guid: 5a257ba66ec03c84c855e0f41006be84,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.6081534
+      value: 0.09200001
       objectReference: {fileID: 0}
     - target: {fileID: 4014856608379128837, guid: 5a257ba66ec03c84c855e0f41006be84,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0.53927875
+      value: 0.123333335
       objectReference: {fileID: 0}
     - target: {fileID: 4014856608379128837, guid: 5a257ba66ec03c84c855e0f41006be84,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.38165712
+      value: 0.09200001
       objectReference: {fileID: 0}
     - target: {fileID: 4014856608379128837, guid: 5a257ba66ec03c84c855e0f41006be84,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.39816374
+      value: 0.123333335
       objectReference: {fileID: 0}
     - target: {fileID: 4014856608379128837, guid: 5a257ba66ec03c84c855e0f41006be84,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -83.69864
+      value: 157.30139
       objectReference: {fileID: 0}
     - target: {fileID: 4014856608379128837, guid: 5a257ba66ec03c84c855e0f41006be84,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -26.254211
+      value: 58.74579
       objectReference: {fileID: 0}
     - target: {fileID: 4014856608379128837, guid: 5a257ba66ec03c84c855e0f41006be84,
         type: 3}
@@ -8491,12 +8491,12 @@ PrefabInstance:
     - target: {fileID: 4014856608379128837, guid: 5a257ba66ec03c84c855e0f41006be84,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -565
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4014856608379128837, guid: 5a257ba66ec03c84c855e0f41006be84,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -230
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4014856608379128837, guid: 5a257ba66ec03c84c855e0f41006be84,
         type: 3}
@@ -8531,7 +8531,7 @@ PrefabInstance:
     - target: {fileID: 8591098588254475191, guid: 5a257ba66ec03c84c855e0f41006be84,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000030517578
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a257ba66ec03c84c855e0f41006be84, type: 3}
@@ -9370,7 +9370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7bad94c01be38b43a89a137b206c63d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
+  sceneName: scenario2
 --- !u!1 &1355673817
 GameObject:
   m_ObjectHideFlags: 0
@@ -12478,7 +12478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1967613968
 MonoBehaviour:
   m_ObjectHideFlags: 0

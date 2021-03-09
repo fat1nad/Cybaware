@@ -16,7 +16,7 @@ public class LoadScenario : MonoBehaviour
     public void LoadScenario2()
     {
         var scenario2
-    = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, "scenario2"));
+    = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, sceneName));
         if (scenario2 == null)
         {
             Debug.Log("Failed to load AssetBundle!");
