@@ -38,12 +38,9 @@ public class MainMenuMGR : MonoBehaviour
     public AudioClip hover;
     void Start()
     {
-
-            ToStartScreen();
-            audio = GetComponent<AudioSource>();
-            Debug.Log("sdfd");
-
-
+        ToStartScreen();
+        audio = GetComponent<AudioSource>();
+        Debug.Log("Script: MainMenuMGR. Start() executed Successfully.");
     }
     
     // Update is called once per frame
@@ -53,23 +50,44 @@ public class MainMenuMGR : MonoBehaviour
         {//On Start Screen
             if (Input.anyKeyDown)
             {//if pressed escape, quit confirmation. else  go to main menu
+                
                 if (Input.GetKeyDown(KeyCode.Escape))
                     QuitConfirmation();
-                else if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1) || Input.GetKeyDown(KeyCode.Mouse2) || Input.GetKeyDown(KeyCode.Mouse3))
-                {
-                    Debug.Log("MousebuttonsClicked");
-                }
-                else
-                {
-                    ProfileSelection();
-                }
-                    
+                
+                else if (!MouseButtonsClicked())
+                    ProfileSelection(); 
             }
         }
     }
+
+    /// <summary>
+    /// Function checks if any mouse button is pressed
+    /// Referenced in the input region in the Update Function.
+    /// </summary>
+    /// <returns></returns>
+    bool MouseButtonsClicked()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            return true;
+        else if (Input.GetKeyDown(KeyCode.Mouse1))
+            return true;
+        else if (Input.GetKeyDown(KeyCode.Mouse2))
+            return true;
+        else if (Input.GetKeyDown(KeyCode.Mouse3))
+            return true;
+        else if (Input.GetKeyDown(KeyCode.Mouse4))
+            return true;
+        else if (Input.GetKeyDown(KeyCode.Mouse5))
+            return true;
+        else if (Input.GetKeyDown(KeyCode.Mouse6))
+            return true;
+        else
+            return false;
+    }
+
     void MouseEnter()
     {
-        Debug.Log("aly audioo");
+        Debug.Log("aly audioo"); // Either remove this or add a better debug message??? 
         audio.PlayOneShot(hover);
     }
 

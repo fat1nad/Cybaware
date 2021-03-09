@@ -13,19 +13,22 @@ public class LoadScenario : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
     public void LoadScenario2()
     {
-        var scenario2
-    = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, sceneName));
+        string assetLocation = Path.Combine(Application.streamingAssetsPath, sceneName);
+        AssetBundle scenario2 = AssetBundle.LoadFromFile(assetLocation);
+        
         if (scenario2 == null)
         {
             Debug.Log("Failed to load AssetBundle!");
             return;
         }
+
         if (scenario2.isStreamedSceneAssetBundle)
         {
             string[] scenePaths = scenario2.GetAllScenePaths();
-            string sceneName = System.IO.Path.GetFileNameWithoutExtension(scenePaths[0]);
+            string sceneName = Path.GetFileNameWithoutExtension(scenePaths[0]);
             SceneManager.LoadScene(sceneName);
         }
     }
