@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class OnHover : MonoBehaviour
 {
-    public AudioSource audio;
+    public AudioSource audioSrc;
     public AudioClip hover;
 
     public void HoverSound()
     {
         //If your mouse hovers over the GameObject with the script attached, output this message
         Debug.Log("Mouse is over GameObject.");
-        audio.PlayOneShot(hover);
+        audioSrc.PlayOneShot(hover);
     }
 
 

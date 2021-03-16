@@ -34,12 +34,12 @@ public class MainMenuMGR : MonoBehaviour
     #endregion
 
     #region Methods
-    private AudioSource audio;
+    private AudioSource audioSrc;
     public AudioClip hover;
     void Start()
     {
         ToStartScreen();
-        audio = GetComponent<AudioSource>();
+        audioSrc = GetComponent<AudioSource>();
         Debug.Log("Script: MainMenuMGR. Start() executed Successfully.");
     }
     
@@ -83,12 +83,6 @@ public class MainMenuMGR : MonoBehaviour
             return true;
         else
             return false;
-    }
-
-    void MouseEnter()
-    {
-        Debug.Log("aly audioo"); // Either remove this or add a better debug message??? 
-        audio.PlayOneShot(hover);
     }
 
     public void ProfileSelection()
