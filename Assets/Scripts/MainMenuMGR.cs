@@ -31,6 +31,15 @@ public class MainMenuMGR : MonoBehaviour
 
     [SerializeField]
     Canvas NewUserCVS;
+     
+    [SerializeField]
+    Canvas ErrorCanvasProfileCreation;
+
+    [SerializeField]
+    Canvas ErrorCanvasProfileCreation2;
+
+    [SerializeField]
+    Canvas UserAddedPrompt;
 
 
 
@@ -152,6 +161,10 @@ public class MainMenuMGR : MonoBehaviour
         SettingsCVS.gameObject.SetActive(false);
         QuitConfirmationCVS.gameObject.SetActive(false);
         NewUserCVS.gameObject.SetActive(false);
+        ErrorCanvasProfileCreation.gameObject.SetActive(false);
+        ErrorCanvasProfileCreation2.gameObject.SetActive(false);
+        UserAddedPrompt.gameObject.SetActive(false);
+
 
     }
 
