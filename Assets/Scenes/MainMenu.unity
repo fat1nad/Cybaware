@@ -14242,7 +14242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccdff18cbb3a57b4b8c2ae6e710b9b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audio: {fileID: 1780715519}
+  audioSrc: {fileID: 1780715519}
   hover: {fileID: 8300000, guid: e8dcba6d991c844499e44a552a5c3a9b, type: 3}
 --- !u!114 &1780715521
 MonoBehaviour:
@@ -16969,10 +16969,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1485675357}
     m_Modifications:
+    - target: {fileID: 929010532686129746, guid: 464aa722af092dc43b004647659a2ed4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 929010532686129748, guid: 464aa722af092dc43b004647659a2ed4,
         type: 3}
       propertyPath: m_Name
       value: BGBlack
+      objectReference: {fileID: 0}
+    - target: {fileID: 929010532686129748, guid: 464aa722af092dc43b004647659a2ed4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 929010532686129749, guid: 464aa722af092dc43b004647659a2ed4,
         type: 3}
@@ -17012,7 +17022,7 @@ PrefabInstance:
     - target: {fileID: 929010532686129749, guid: 464aa722af092dc43b004647659a2ed4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -307.31754
+      value: -524.23145
       objectReference: {fileID: 0}
     - target: {fileID: 929010532686129749, guid: 464aa722af092dc43b004647659a2ed4,
         type: 3}
@@ -17072,7 +17082,7 @@ PrefabInstance:
     - target: {fileID: 929010532686129749, guid: 464aa722af092dc43b004647659a2ed4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4.1000977
+      value: -0.0006713867
       objectReference: {fileID: 0}
     - target: {fileID: 929010532686129749, guid: 464aa722af092dc43b004647659a2ed4,
         type: 3}
