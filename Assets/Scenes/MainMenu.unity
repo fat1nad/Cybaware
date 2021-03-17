@@ -2921,7 +2921,7 @@ PrefabInstance:
     - target: {fileID: 4651677961468599753, guid: 2da00109f38fef743b9ec13bc4da5181,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000019073486
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4651677961468599753, guid: 2da00109f38fef743b9ec13bc4da5181,
         type: 3}
@@ -3354,12 +3354,12 @@ PrefabInstance:
     - target: {fileID: 4651677961468599753, guid: 2da00109f38fef743b9ec13bc4da5181,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.199997
+      value: -1.1999817
       objectReference: {fileID: 0}
     - target: {fileID: 4651677961468599753, guid: 2da00109f38fef743b9ec13bc4da5181,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.29999924
+      value: -0.30000305
       objectReference: {fileID: 0}
     - target: {fileID: 4651677961468599753, guid: 2da00109f38fef743b9ec13bc4da5181,
         type: 3}
@@ -3781,6 +3781,9 @@ MonoBehaviour:
   ErrorCanvasProfileCreation2: {fileID: 778647941}
   UserAddedPrompt: {fileID: 1540109687}
   IPField: {fileID: 1527704459}
+  data:
+    playerName: 
+    Gibberish: 
 --- !u!1 &383695740
 GameObject:
   m_ObjectHideFlags: 0
@@ -6096,7 +6099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.172}
   m_AnchorMin: {x: 0.3893178, y: 0.099721245}
   m_AnchorMax: {x: 0.6081534, y: 0.22472125}
-  m_AnchoredPosition: {x: -0.5758209, y: 0.82502747}
+  m_AnchoredPosition: {x: -0.5758209, y: 0.8250122}
   m_SizeDelta: {x: 34.203552, y: 2.2670822}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &590584902
@@ -6592,8 +6595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae37f38eecce6b47bbdbe29e461c2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderValue: {fileID: 283161071}
-  slider: {fileID: 660568142}
 --- !u!1 &674636205
 GameObject:
   m_ObjectHideFlags: 0
@@ -11673,7 +11674,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23054248, y: 0.8048363}
   m_AnchorMax: {x: 0.7733178, y: 1}
-  m_AnchoredPosition: {x: 0.48254395, y: 1.5333481}
+  m_AnchoredPosition: {x: 0.48254395, y: 1.5333557}
   m_SizeDelta: {x: 271, y: 41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1355673819
@@ -14017,7 +14018,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3893178, y: 0.572}
   m_AnchorMax: {x: 0.6081534, y: 0.70000005}
-  m_AnchoredPosition: {x: -0.5758209, y: 0.18999863}
+  m_AnchoredPosition: {x: -0.5758209, y: 0.19000244}
   m_SizeDelta: {x: 34.203552, y: 2.398079}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1780715516
@@ -15385,8 +15386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ff10d5a2ec9644e9be8d238d6c3694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSrc: {fileID: 0}
-  musicVolume: 1
 --- !u!1 &1967613967
 GameObject:
   m_ObjectHideFlags: 0
@@ -17073,7 +17072,7 @@ PrefabInstance:
     - target: {fileID: 929010532686129749, guid: 464aa722af092dc43b004647659a2ed4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -4.1000366
+      value: -4.1000977
       objectReference: {fileID: 0}
     - target: {fileID: 929010532686129749, guid: 464aa722af092dc43b004647659a2ed4,
         type: 3}
