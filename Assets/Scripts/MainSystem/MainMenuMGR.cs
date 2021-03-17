@@ -29,6 +29,18 @@ public class MainMenuMGR : MonoBehaviour
     [SerializeField]
     Canvas QuitConfirmationCVS;
 
+    [SerializeField]
+    Canvas NewUserCVS;
+     
+    [SerializeField]
+    Canvas ErrorCanvasProfileCreation;
+
+    [SerializeField]
+    Canvas ErrorCanvasProfileCreation2;
+
+    [SerializeField]
+    Canvas UserAddedPrompt;
+
 
 
     #endregion
@@ -126,6 +138,12 @@ public class MainMenuMGR : MonoBehaviour
         DisableAllCVS();
         StartCVS.gameObject.SetActive(true);
     }
+    public void ToNewUserScreen()
+    {
+        DisableAllCVS();
+        NewUserCVS.gameObject.SetActive(true);
+    }
+
 
     private void DisableAllCVS()
     {
@@ -136,6 +154,12 @@ public class MainMenuMGR : MonoBehaviour
         InfoScreenCVS.gameObject.SetActive(false);
         SettingsCVS.gameObject.SetActive(false);
         QuitConfirmationCVS.gameObject.SetActive(false);
+        NewUserCVS.gameObject.SetActive(false);
+        ErrorCanvasProfileCreation.gameObject.SetActive(false);
+        ErrorCanvasProfileCreation2.gameObject.SetActive(false);
+        UserAddedPrompt.gameObject.SetActive(false);
+
+
     }
 
     public void Quit()
