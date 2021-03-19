@@ -11,36 +11,26 @@ public class ScenePlayer : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        PlayFirstScene();
+        StartCoroutine(PlayFirstScene());
     }
 
-    private void PlayFirstScene()
+    IEnumerator PlayFirstScene()
     {
-        ExecuteAfterTime(1);
+        yield return new WaitForSeconds(1);
 
         DialogueManager.instance.StartDialogue(livingRoomSceneDialogue);
 
-        WaitForDialogue();
-
-        laptopScene.SetActive(true);
-        laptopScene.GetComponent<Animator>().SetTrigger("sceneChange");
-
-        ExecuteAfterTime(1);
-
-        DialogueManager.instance.StartDialogue(laptopSceneDialogue);
-    }
-    
-    IEnumerator ExecuteAfterTime(float time)
-    {
-        yield return new WaitForSeconds(time);
-    }
-
-    IEnumerable WaitForDialogue()
-    {
         while (DialogueManager.dialogueRunning)
         {
             Debug.Log(DialogueManager.dialogueRunning);
             yield return null;
-        }    
+        }
+
+        laptopScene.SetActive(true);
+        laptopScene.GetComponent<Animator>().SetTrigger("sceneChange");
+
+        yield return new WaitForSeconds(1);
+
+        DialogueManager.instance.StartDialogue(laptopSceneDialogue);
     }
 }
