@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     static public DialogueManager instance;
+    static public bool dialogueRunning;
 
     public Text dialogueText;
     public Animator dialogueBoxAnimator;
@@ -13,12 +14,13 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (instance == null)
         {
             instance = this;
             sentences = new Queue<string>();
+            dialogueRunning = false;
         }
     }
 
@@ -32,6 +34,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        dialogueRunning = true;
         dialogueBoxAnimator.SetBool("isOpen", true);
 
         sentences.Clear();
@@ -69,6 +72,7 @@ public class DialogueManager : MonoBehaviour
     public void EndDialogue()
     {
         dialogueBoxAnimator.SetBool("isOpen", false);
+        dialogueRunning = false;
     }
 
 
