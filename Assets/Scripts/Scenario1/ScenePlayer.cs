@@ -22,7 +22,6 @@ public class ScenePlayer : MonoBehaviour
 
         while (DialogueManager.dialogueRunning)
         {
-            Debug.Log(DialogueManager.dialogueRunning);
             yield return null;
         }
 
@@ -32,5 +31,7 @@ public class ScenePlayer : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         DialogueManager.instance.StartDialogue(laptopSceneDialogue);
+
+        //SceneManager.LoadScene("EndLevel");
     }
 }
