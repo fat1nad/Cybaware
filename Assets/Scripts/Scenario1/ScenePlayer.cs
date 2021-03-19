@@ -20,7 +20,7 @@ public class ScenePlayer : MonoBehaviour
 
         DialogueManager.instance.StartDialogue(livingRoomSceneDialogue);
 
-        while (DialogueManager.dialogueRunning){}
+        WaitForDialogue();
 
         laptopScene.SetActive(true);
         laptopScene.GetComponent<Animator>().SetTrigger("sceneChange");
@@ -33,5 +33,14 @@ public class ScenePlayer : MonoBehaviour
     IEnumerator ExecuteAfterTime(float time)
     {
         yield return new WaitForSeconds(time);
+    }
+
+    IEnumerable WaitForDialogue()
+    {
+        while (DialogueManager.dialogueRunning)
+        {
+            Debug.Log(DialogueManager.dialogueRunning);
+            yield return null;
+        }    
     }
 }
