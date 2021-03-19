@@ -7,6 +7,7 @@ public class ScenePlayer : MonoBehaviour
     public Dialogue livingRoomSceneDialogue;
     public Dialogue laptopSceneDialogue;
     public GameObject laptopScene;
+    public GameObject internetSurferButton;
 
     // Update is called once per frame
     void Start()
@@ -31,6 +32,13 @@ public class ScenePlayer : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         DialogueManager.instance.StartDialogue(laptopSceneDialogue);
+
+        while (DialogueManager.dialogueRunning)
+        {
+            yield return null;
+        }
+
+        internetSurferButton.SetActive(true);
 
         //SceneManager.LoadScene("EndLevel");
     }

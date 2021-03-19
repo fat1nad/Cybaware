@@ -26,7 +26,7 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) // For now its space
+        if (Input.GetMouseButtonDown(0)) // Left mouse button
         {
             DisplayNextSentence();
         }
