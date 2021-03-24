@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 public class MainMenuMGR : MonoBehaviour
@@ -48,16 +49,35 @@ public class MainMenuMGR : MonoBehaviour
     #region Methods
     private AudioSource audioSrc;
     public AudioClip hover;
+
+    public AudioSource IntroMusic;
+    public AudioSource Loop;
+
+    Players SelectedPlayer;
+
     void Start()
     {
         ToStartScreen();
+        IntroMusic = IntroMusic.GetComponent<AudioSource>();
+        Loop = Loop.GetComponent<AudioSource>();
         audioSrc = GetComponent<AudioSource>();
         Debug.Log("Script: MainMenuMGR. Start() executed Successfully.");
+        Loop.gameObject.SetActive(true);
+        IntroMusic.Play();
+        Invoke("PlayAudioClip", 62.86f);
     }
-    
+    private void PlayAudioClip()
+    {
+        IntroMusic.gameObject.SetActive(false);
+        Loop.gameObject.SetActive(true);
+        Loop.Play();
+
+    }
+
     // Update is called once per frame
     void Update()
     {
+        
         if (StartCVS.gameObject.activeSelf)
         {//On Start Screen
             if (Input.anyKeyDown)
@@ -70,6 +90,7 @@ public class MainMenuMGR : MonoBehaviour
                     ProfileSelection(); 
             }
         }
+
     }
 
     /// <summary>
@@ -166,6 +187,7 @@ public class MainMenuMGR : MonoBehaviour
     {
         Application.Quit(0);
     }
+
 
     #endregion 
 }

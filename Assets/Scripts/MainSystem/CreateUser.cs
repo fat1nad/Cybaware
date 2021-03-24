@@ -87,11 +87,29 @@ public class CreateUser : MonoBehaviour
 
 
             }
-            Debug.Log(players[0].playerName);
-            Debug.Log(players[1].playerName);
+
 
 
         }
+
+    }
+    public void OnClicked(Button button)
+    {
+
+        string playerText = button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
+        GameObject playerFinder = GameObject.Find("PlayerFinder");
+        PlayerFind playerfind =  playerFinder.GetComponent<PlayerFind>();
+
+        foreach( Players player in players )
+        {
+            if (player.playerName == playerText )
+            {
+                playerfind.player = player;
+                Debug.Log(playerfind.player.playerName);
+            }
+        }
+        
+        
 
     }
 
@@ -140,19 +158,11 @@ public class CreateUser : MonoBehaviour
         }
         Debug.Log(userName);
         UserAddedPrompt.gameObject.SetActive(true);
-        SavePlayer(userName, "aweinkuchbhi");
-        
+        SavePlayer(userName, "PlaceholderData");
        
-
-
     }
 
-    [System.Serializable]
-    public class Players
-    {
-        public string playerName;
-        public string Gibberish;
-    }
+
 
 
 }
