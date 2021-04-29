@@ -9,7 +9,6 @@ public class ScenePlayer : MonoBehaviour
     public GameObject laptopScene;
     public GameObject internetSurferButton;
 
-    // Update is called once per frame
     void Start()
     {
         StartCoroutine(PlayFirstScene());
