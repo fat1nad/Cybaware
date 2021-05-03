@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
+/*  This class is a central dialogue managing system. It runs any dialogues 
+    passed to it on any dialogue box of choice. Since it is static and is used 
+    to apply singleton pattern, it can be used anywhere in the entire Cybaware 
+    system.
+*/
+
 {
     static public DialogueManager instance;
     static public bool dialogueRunning;
@@ -12,8 +18,7 @@ public class DialogueManager : MonoBehaviour
     public Animator dialogueBoxAnimator;
 
     private Queue<string> sentences;
-    
-    // Start is called before the first frame update
+
     void Awake()
     {
         if (instance == null)
@@ -55,7 +60,8 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        StopAllCoroutines();
+        StopAllCoroutines(); // TypeSentence function stopped if already
+                             // running
         StartCoroutine(TypeSentence(sentences.Dequeue()));
     }
 

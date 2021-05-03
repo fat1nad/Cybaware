@@ -6,8 +6,8 @@ public class ScenePlayer : MonoBehaviour
 {
     public Dialogue livingRoomSceneDialogue;
     public Dialogue laptopSceneDialogue;
-    public GameObject laptopScene;
-    public GameObject internetSurferButton;
+    public GameObject bedroomScene;
+    //public GameObject internetSurferButton;
 
     void Start()
     {
@@ -25,8 +25,8 @@ public class ScenePlayer : MonoBehaviour
             yield return null;
         }
 
-        laptopScene.SetActive(true);
-        laptopScene.GetComponent<Animator>().SetTrigger("sceneChange");
+        bedroomScene.SetActive(true);
+        bedroomScene.GetComponent<Animator>().SetTrigger("sceneChange");
 
         yield return new WaitForSeconds(1);
 
@@ -37,7 +37,8 @@ public class ScenePlayer : MonoBehaviour
             yield return null;
         }
 
-        internetSurferButton.SetActive(true);
+        //internetSurferButton.SetActive(true); //not part of first scene
+                                                //anymore
 
         //SceneManager.LoadScene("EndLevel");
     }
