@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class BrowserFunctions : MonoBehaviour
 {
+    public GameObject ReviewScreen;
+    public GameObject ReviewScreenSofa;
     public GameObject WebAddress;
     public GameObject PromptExtraSofa;
     public GameObject TickConfirmation;
@@ -11,27 +15,30 @@ public class BrowserFunctions : MonoBehaviour
     public GameObject MailWebsite;
 
     // Start is called before the first frame update
-    private static bool addToCart = false;
+   // private static bool addToCart = false;
     public void SetTickConfirmActive()
     {
         Debug.Log(TickConfirmation.activeSelf.ToString());
         
         if(TickConfirmation.activeSelf == false)
         {
-            
-            if (addToCart == true)
-            {
-                this.gameObject.tag = "Selected";
-                TickConfirmation.SetActive(true);
-            }
+           
+            this.gameObject.tag = "Selected";
+            GameObject[] SelectedObjs;
+            SelectedObjs = GameObject.FindGameObjectsWithTag("Selected");
+            ReviewScreenSofa.GetComponentInChildren<Image>().sprite = SelectedObjs[0].GetComponent<Image>().sprite;
+            ReviewScreenSofa.transform.Find("Name").GetComponentInChildren<TMPro.TextMeshProUGUI>().text = SelectedObjs[0].transform.Find("Name").GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
+            ReviewScreenSofa.transform.Find("Price").GetComponentInChildren<TMPro.TextMeshProUGUI>().text = SelectedObjs[0].transform.Find("Price").GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
+            ReviewScreen.gameObject.SetActive(true);
 
-            
-            
+
+
+
         }
         else
         {
-            this.gameObject.tag = "Unselected";
             TickConfirmation.SetActive(false);
+            
         }
 
     }
@@ -51,9 +58,21 @@ public class BrowserFunctions : MonoBehaviour
 
     }
 
-    private void OpenReview()
+    public void AddToCart()
     {
+        GameObject[] SelectedObjs;
+        SelectedObjs = GameObject.FindGameObjectsWithTag("Selected");
+        SelectedObjs[0].transform.Find("TickConfirm").gameObject.SetActive(true);
+       
+        
 
+    }
+    public void CancelAddtoCart()
+    {
+        GameObject[] SelectedObjs;
+        SelectedObjs = GameObject.FindGameObjectsWithTag("Selected");
+        SelectedObjs[0].tag = "Unselected";
+        ReviewScreen.gameObject.SetActive(false);
     }
     public void GoToCart()
     {
