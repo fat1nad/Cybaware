@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class BrowserFunctions : MonoBehaviour
 {
+    public GameObject CheckoutScreen;
+    public GameObject CheckoutScreenTotalPrice;
     public GameObject ReviewScreen;
     public GameObject ReviewScreenSofa;
     public GameObject WebAddress;
@@ -29,16 +31,14 @@ public class BrowserFunctions : MonoBehaviour
             ReviewScreenSofa.GetComponentInChildren<Image>().sprite = SelectedObjs[0].GetComponent<Image>().sprite;
             ReviewScreenSofa.transform.Find("Name").GetComponentInChildren<TMPro.TextMeshProUGUI>().text = SelectedObjs[0].transform.Find("Name").GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
             ReviewScreenSofa.transform.Find("Price").GetComponentInChildren<TMPro.TextMeshProUGUI>().text = SelectedObjs[0].transform.Find("Price").GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
+            
+
             ReviewScreen.gameObject.SetActive(true);
-
-
-
-
         }
         else
         {
-            TickConfirmation.SetActive(false);
-            
+            TickConfirmation.gameObject.SetActive(false);
+            this.gameObject.tag = "Unselected";
         }
 
     }
@@ -63,10 +63,19 @@ public class BrowserFunctions : MonoBehaviour
         GameObject[] SelectedObjs;
         SelectedObjs = GameObject.FindGameObjectsWithTag("Selected");
         SelectedObjs[0].transform.Find("TickConfirm").gameObject.SetActive(true);
-       
-        
+        ReviewScreen.gameObject.SetActive(false);
+
+
+
 
     }
+    public void BuyButton()
+    {
+        //do something
+        CheckoutScreen.gameObject.SetActive(false);
+
+    }
+
     public void CancelAddtoCart()
     {
         GameObject[] SelectedObjs;
@@ -85,6 +94,12 @@ public class BrowserFunctions : MonoBehaviour
         else
         {
             Debug.Log("Only One Sofa selected");
+            CheckoutScreen.gameObject.SetActive(true);
+            ReviewScreenSofa.GetComponentInChildren<Image>().sprite = SelectedObjs[0].GetComponent<Image>().sprite;
+            ReviewScreenSofa.transform.Find("Name").GetComponentInChildren<TMPro.TextMeshProUGUI>().text = SelectedObjs[0].transform.Find("Name").GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
+            ReviewScreenSofa.transform.Find("Price").GetComponentInChildren<TMPro.TextMeshProUGUI>().text = SelectedObjs[0].transform.Find("Price").GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
+            CheckoutScreenTotalPrice.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = SelectedObjs[0].transform.Find("Price").GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
+            SelectedObjs[0].tag = "Unselected";
         }
 
 
