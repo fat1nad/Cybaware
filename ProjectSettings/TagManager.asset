@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Selected
   - Unselected
+  - Review
+  - WebAddress
+  - SofLandWebsite
   layers:
   - Default
   - TransparentFX
