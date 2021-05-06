@@ -5,20 +5,20 @@ using UnityEngine;
 public class BrowserFunctions : MonoBehaviour
 {
     public GameObject TickConfirmation;
-    public Sofa Selected;
     // Start is called before the first frame update
     public void SetTickConfirmActive()
     {
         Debug.Log(TickConfirmation.activeSelf.ToString());
         if(TickConfirmation.activeSelf == false)
         {
+            this.gameObject.tag = "Selected";
             TickConfirmation.SetActive(true);
-            Selected.SelectedSofa= this.gameObject;
             
         }
        
         else
         {
+            this.gameObject.tag = "Unselected";
             TickConfirmation.SetActive(false);
         }
 

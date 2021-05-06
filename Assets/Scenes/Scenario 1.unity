@@ -179,8 +179,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: SofLand
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 07c861ddc301a4f45bb18ec74818c9fe, type: 2}
+  m_sharedMaterial: {fileID: -7860677754224140753, guid: 07c861ddc301a4f45bb18ec74818c9fe,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -204,10 +205,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 40.55
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -362,8 +363,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -797, y: -0.021324158}
-  m_SizeDelta: {x: -1625.2207, y: -0.042640686}
+  m_AnchoredPosition: {x: -638.4, y: -0.021324158}
+  m_SizeDelta: {x: -1307.9954, y: -0.042640686}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &226125079
 MonoBehaviour:
@@ -386,8 +387,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: www.sofLand.com
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 07c861ddc301a4f45bb18ec74818c9fe, type: 2}
+  m_sharedMaterial: {fileID: -7860677754224140753, guid: 07c861ddc301a4f45bb18ec74818c9fe,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -411,10 +413,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 40.55
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -7517,8 +7519,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 84.17096, y: -166.00002}
-  m_SizeDelta: {x: -168.34195, y: -222.8252}
+  m_AnchoredPosition: {x: 80.5, y: -182}
+  m_SizeDelta: {x: -160.90094, y: -224.88931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1476832694
 MonoBehaviour:
@@ -7541,8 +7543,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: $237
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 07c861ddc301a4f45bb18ec74818c9fe, type: 2}
+  m_sharedMaterial: {fileID: -7860677754224140753, guid: 07c861ddc301a4f45bb18ec74818c9fe,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7566,7 +7569,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.4
+  m_fontSize: 39
   m_fontSizeBase: 39
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -8428,8 +8431,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -72, y: -166.00002}
-  m_SizeDelta: {x: -113.84093, y: -222.8252}
+  m_AnchoredPosition: {x: -70, y: -182}
+  m_SizeDelta: {x: -102.79413, y: -224.88931}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1978819089
 MonoBehaviour:
@@ -8452,8 +8455,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Kristina
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 07c861ddc301a4f45bb18ec74818c9fe, type: 2}
+  m_sharedMaterial: {fileID: -7860677754224140753, guid: 07c861ddc301a4f45bb18ec74818c9fe,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
