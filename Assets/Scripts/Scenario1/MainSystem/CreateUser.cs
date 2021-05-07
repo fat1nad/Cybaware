@@ -6,6 +6,7 @@ using System.IO;
 using UnityEngine.UI;
 
 using System.Runtime.Serialization.Formatters.Binary;
+
 public class CreateUser : MonoBehaviour
 {
     [SerializeField]
@@ -18,8 +19,8 @@ public class CreateUser : MonoBehaviour
     Canvas UserAddedPrompt;
 
     [SerializeField]
-    public List<Players> players = new List<Players>();
 
+    public List<Players> players = new List<Players>();
     public GameObject Player1_inactive;
     public GameObject Player2_inactive;
     public GameObject Player3_inactive;
