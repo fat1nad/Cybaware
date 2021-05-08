@@ -9,7 +9,6 @@ public class ScenePlayer : MonoBehaviour
     public Dialogue bedroomSceneDialogue;
     public GameObject livingRoomScene;
     public GameObject bedroomScene;
-    public Button laptop;
     //public GameObject internetSurferButton;
 
     void Start()
@@ -19,6 +18,8 @@ public class ScenePlayer : MonoBehaviour
 
     IEnumerator PlayFirstScene()
     {
+        bedroomScene.SetActive(false);
+
         yield return new WaitForSeconds(1);
 
         DialogueManager.instance.StartDialogue(livingRoomSceneDialogue);
@@ -29,10 +30,9 @@ public class ScenePlayer : MonoBehaviour
         }
 
         bedroomScene.SetActive(true);
-        laptop.interactable = false;
+        bedroomScene.GetComponent<CanvasGroup>().interactable = false;
+        bedroomScene.GetComponent<Animator>().SetTrigger("FadeInTrigger");
 
-        bedroomScene.GetComponent<Animator>().SetTrigger("sceneChange");
-        
         yield return new WaitForSeconds(2);
 
         livingRoomScene.SetActive(false);
@@ -44,7 +44,7 @@ public class ScenePlayer : MonoBehaviour
             yield return null;
         }
 
-        laptop.interactable = true;
+        bedroomScene.GetComponent<CanvasGroup>().interactable = true;
 
         //internetSurferButton.SetActive(true); //not part of first scene
         //anymore
@@ -52,3 +52,5 @@ public class ScenePlayer : MonoBehaviour
         //SceneManager.LoadScene("EndLevel");
     }
 }
+
+
