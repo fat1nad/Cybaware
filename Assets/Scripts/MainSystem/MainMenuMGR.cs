@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
+using TMPro;
 
 public class MainMenuMGR : MonoBehaviour
 {
@@ -41,6 +42,11 @@ public class MainMenuMGR : MonoBehaviour
     [SerializeField]
     Canvas UserAddedPrompt;
 
+    [SerializeField]
+    Slider SFXVolume;
+
+    [SerializeField]
+    TextMeshProUGUI SFXText;
 
 
     #endregion
@@ -69,6 +75,12 @@ public class MainMenuMGR : MonoBehaviour
                 else if (!MouseButtonsClicked())
                     ProfileSelection(); 
             }
+        }
+
+        if (audioSrc.volume != (SFXVolume.value / SFXVolume.maxValue))
+        {
+            SFXText.text = SFXVolume.value.ToString();
+            audioSrc.volume = (SFXVolume.value / SFXVolume.maxValue);
         }
     }
 
