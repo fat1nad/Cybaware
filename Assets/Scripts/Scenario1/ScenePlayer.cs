@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ScenePlayer : MonoBehaviour
 {
+    public DialogueManager dialogueManager;
     public Dialogue livingRoomSceneDialogue;
     public Dialogue bedroomSceneDialogue;
     public GameObject livingRoomScene;
@@ -22,9 +23,9 @@ public class ScenePlayer : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        DialogueManager.instance.StartDialogue(livingRoomSceneDialogue);
+        dialogueManager.StartDialogue(livingRoomSceneDialogue);
 
-        while (DialogueManager.dialogueRunning)
+        while (dialogueManager.dialogueRunning)
         {
             yield return null;
         }
@@ -37,9 +38,9 @@ public class ScenePlayer : MonoBehaviour
 
         livingRoomScene.SetActive(false);
 
-        DialogueManager.instance.StartDialogue(bedroomSceneDialogue);
+        dialogueManager.StartDialogue(bedroomSceneDialogue);
 
-        while (DialogueManager.dialogueRunning)
+        while (dialogueManager.dialogueRunning)
         {
             yield return null;
         }
