@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// Author: Cybaware - Fatima
+
 using UnityEngine;
 
 [System.Serializable]
 
 public class Dialogue
-/*  This class holds a dialogue in the form of several (2-10) sentences.
+/*  This class holds a dialogue in the form of 2-10 sentences.
 */
 
 {    
