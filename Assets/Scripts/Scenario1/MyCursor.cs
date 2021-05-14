@@ -11,19 +11,20 @@ public class MyCursor : MonoBehaviour
     void Start()
     {
         cursorAnim = GetComponent<Animator>();
-        Cursor.visible = false; // disabling default cursor
+
+        Cursor.visible = false; // hiding default cursor
     }
 
     void Update()
     {
-        Vector2 cursorPos = Camera.main.ScreenToWorldPoint
-            (Input.mousePosition);
-        transform.position = cursorPos; // custom cursor maintaining the same
-                                        // positions as the default cursor's
+        // aligning custom cursor with default cursor
+        Vector2 cursorPos = 
+            Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = cursorPos;
 
         if (Input.GetMouseButtonDown(0)) // if left mouse button is pressed
         {
-            cursorAnim.SetTrigger("Click"); // running enlarging animation 
+            cursorAnim.SetTrigger("Click"); // running enlarging animation
         }
         else if (Input.GetMouseButtonUp(0)) // if left mouse button is released
         {
@@ -36,7 +37,7 @@ public class MyCursor : MonoBehaviour
      */
     {
         cursorAnim.SetBool("OnScreen", true); // changing custom cursor's
-                                              // sprite from offscreen version 
-                                              // to onscreen version
+                                              // sprite from offscreen's to
+                                              // onscreen's
     }
 }
