@@ -1,13 +1,20 @@
-﻿using System.Collections;
+﻿// Author: Cybaware - Fatima
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScenePlayer : MonoBehaviour
+/* This class is used to play scenes for Scenario 1.
+ */
 {
+    // all objects required for First Scene 
+    public DialogueManager dialogueManager;
     public Dialogue livingRoomSceneDialogue;
-    public Dialogue laptopSceneDialogue;
+    public Dialogue bedroomSceneDialogue;
+    public GameObject livingRoomScene;
     public GameObject bedroomScene;
-    //public GameObject internetSurferButton;
 
     void Start()
     {
@@ -18,28 +25,34 @@ public class ScenePlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        DialogueManager.instance.StartDialogue(livingRoomSceneDialogue);
+        dialogueManager.StartDialogue(livingRoomSceneDialogue);
 
-        while (DialogueManager.dialogueRunning)
+        while (dialogueManager.dialogueRunning)
+        {
+            yield return null; // waiting a single frame
+        }
+
+        bedroomScene.SetActive(true); // enabling all objects required by
+                                      // bedroom scene
+        bedroomScene.GetComponent<Animator>().SetTrigger("FadeInTrigger");
+        // running fading in animation on all of them
+
+        yield return new WaitForSeconds(2);
+
+        livingRoomScene.SetActive(false); // disabling all objects required by
+                                          // living room scene as they are no
+                                          // longer needed
+
+        dialogueManager.StartDialogue(bedroomSceneDialogue);
+
+        while (dialogueManager.dialogueRunning)
         {
             yield return null;
         }
 
-        bedroomScene.SetActive(true);
-        bedroomScene.GetComponent<Animator>().SetTrigger("sceneChange");
-
-        yield return new WaitForSeconds(1);
-
-        DialogueManager.instance.StartDialogue(laptopSceneDialogue);
-
-        while (DialogueManager.dialogueRunning)
-        {
-            yield return null;
-        }
-
-        //internetSurferButton.SetActive(true); //not part of first scene
-                                                //anymore
-
-        //SceneManager.LoadScene("EndLevel");
+        bedroomScene.GetComponent<CanvasGroup>().interactable = true; 
+        // enabling interaction at the end of First Scene
     }
 }
+
+
