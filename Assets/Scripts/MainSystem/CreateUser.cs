@@ -1,158 +1,76 @@
-﻿using System.Collections;
+﻿using System;
+using System.Data;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.IO;
-using UnityEngine.UI;
+using Mono.Data.Sqlite;
 
-using System.Runtime.Serialization.Formatters.Binary;
 public class CreateUser : MonoBehaviour
 {
     [SerializeField]
-    Canvas ErrorCanvasProfileCreation;
+    TMP_InputField newPlayerName;
+    int maxProfileCount = 5;
 
-    [SerializeField]
-    Canvas ErrorCanvasProfileCreation2;
-
-    [SerializeField]
-    Canvas UserAddedPrompt;
-
-    [SerializeField]
-    public List<Players> players = new List<Players>();
-
-    public GameObject Player1_inactive;
-    public GameObject Player2_inactive;
-    public GameObject Player3_inactive;
-    public GameObject Player4_inactive;
-    public GameObject Player5_inactive;
-    public Button Player1;
-    public GameObject Player2;
-    public GameObject Player3;
-    public GameObject Player4;
-    public GameObject Player5;
-
-
-    private List<string> userNames = new List<string>();
     
-    // Start is called before the first frame update
-    public TMP_InputField IPField;
-    private string userName;
-    void Start()
+    public PlayerProfileButton NewPlayer; 
+
+    public void CreateProfile()
     {
-        string path = Application.persistentDataPath + "/UserProfiles.fun";
-        if(File.Exists(path))
+        Dictionary<int, string> cw_profiles = DatabaseConnection.LoadProfiles();
+
+        if (cw_profiles.Count < maxProfileCount)
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-            players = formatter.Deserialize(stream) as List<Players>;
-            stream.Close();
-            for (int i = 0; i < players.Count; i++)
-            {
-                if(i==0)
-                {
-                    Debug.Log("Tryin to changee");
-                    Player1.gameObject.SetActive(true);
-                    Player1.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = players[i].playerName;
-                    
-                    Player1_inactive.gameObject.SetActive(false);
-                }
-                if (i==1)
-                {
-                    Player2.gameObject.SetActive(true);
-                    Player2.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = players[i].playerName;
+            string insert = "INSERT INTO Profile (PlayerName) ";
+            string vals = "VALUES (\"" + ""+ newPlayerName.text +  "\");";
 
-                    Player2_inactive.gameObject.SetActive(false);
-                }
-                if (i == 2)
-                {
-                    Player3.gameObject.SetActive(true);
-                    Player3.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = players[i].playerName;
+            /// Fix this to prevent SQL injection attack later.
+            IDbCommand dbcmd = DatabaseConnection.CWdatabase.CreateCommand();
+            dbcmd.CommandText = insert + vals;
 
-                    Player3_inactive.gameObject.SetActive(false);
-                }
-                if (i == 3)
-                {
-                    Player4.gameObject.SetActive(true);
-                    Player4.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = players[i].playerName;
+            // Inserting into the Database 
+            dbcmd.ExecuteNonQuery();
 
-                    Player4_inactive.gameObject.SetActive(false);
-                }
-                if (i == 4)
-                {
-                    Player5.gameObject.SetActive(true);
-                    Player5.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = players[i].playerName;
+            //Raise a flag to show Profile table was updated.
+            DatabaseConnection.db_updated["Profile"] = true;
 
-                    Player5_inactive.gameObject.SetActive(false);
-                }
+            //Fetch the ProfileID of the newly inserted Player 
+            string table = "FROM Profile ";
+            string select = "SELECT ProfileID ";
+            string condition = "WHERE PlayerName = \"" + newPlayerName.text + "\";";
 
+            dbcmd.Dispose();
+            dbcmd = DatabaseConnection.CWdatabase.CreateCommand();
+            dbcmd.CommandText = select + table + condition;
 
-            }
-            Debug.Log(players[0].playerName);
-            Debug.Log(players[1].playerName);
+            IDataReader reader = dbcmd.ExecuteReader();
+            reader.Read();
 
+            NewPlayer.PlayerName = newPlayerName.text;
+            NewPlayer.ProfileID = reader.GetInt32(0);
 
-        }
+            reader.Close();
+            reader = null;
 
-    }
+            Debug.Log(NewPlayer.ProfileID.ToString() + " : " + NewPlayer.PlayerName);
 
-    [SerializeField] 
-    private SaveData data;
-
-    public void SavePlayer(string name, string Gib)
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/UserProfiles.fun";
-        FileStream stream = new FileStream(path, FileMode.Create);
-        Players playerData = new Players();
-        playerData.Gibberish = Gib;
-        playerData.playerName = name;
-        players.Add(playerData);
-
-        formatter.Serialize(stream, players);
-        stream.Close();
-    }
-
-    public void Create()
-    {
-
-        userNames.Add("Jeff");
-        userNames.Add("Bruce");
-        userNames.Add("Nancy");
-
-        userName = "bla";
-        userName = IPField.GetComponent<TMP_InputField>().text;
-        if(userName == "")
-        {
-            ErrorCanvasProfileCreation.gameObject.SetActive(true);
-            return;
-            
-
-        }
-        foreach (string user in userNames)
-        {
-            if(user == userName)
-            {
-                ErrorCanvasProfileCreation2.gameObject.SetActive(true);
-                return;
-               
+            insert = "INSERT INTO ProfilePreferences (ProfileID) ";
+            vals = "VALUES (" + NewPlayer.ProfileID.ToString() + ");";
                 
-            }
+            /// Fix this to prevent SQL injection attack later.
+            dbcmd.Dispose();
+            dbcmd = DatabaseConnection.CWdatabase.CreateCommand();
+            dbcmd.CommandText = insert + vals;
+
+            // Inserting into the Database 
+            dbcmd.ExecuteNonQuery();
+
+            //Raise a flag to show ProfilePreferences table was updated.
+            DatabaseConnection.db_updated["ProfilePreferences"] = true;
+
+            dbcmd.Dispose();
+            dbcmd = null;
+            NewPlayer = null;
         }
-        Debug.Log(userName);
-        UserAddedPrompt.gameObject.SetActive(true);
-        SavePlayer(userName, "aweinkuchbhi");
-        
-       
-
-
     }
-
-    [System.Serializable]
-    public class Players
-    {
-        public string playerName;
-        public string Gibberish;
-    }
-
-
 }

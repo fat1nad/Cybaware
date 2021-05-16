@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Data;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Mono.Data.Sqlite;
 using TMPro;
 
 public class MainMenuMGR : MonoBehaviour
@@ -32,15 +35,6 @@ public class MainMenuMGR : MonoBehaviour
 
     [SerializeField]
     Canvas NewUserCVS;
-     
-    [SerializeField]
-    Canvas ErrorCanvasProfileCreation;
-
-    [SerializeField]
-    Canvas ErrorCanvasProfileCreation2;
-
-    [SerializeField]
-    Canvas UserAddedPrompt;
 
     [SerializeField]
     Slider SFXVolume;
@@ -48,19 +42,20 @@ public class MainMenuMGR : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI SFXText;
 
+    private AudioSource audioSrc;
+    public AudioClip hover;
 
     #endregion
 
     #region Methods
-    private AudioSource audioSrc;
-    public AudioClip hover;
+
     void Start()
     {
         ToStartScreen();
         audioSrc = GetComponent<AudioSource>();
         Debug.Log("Script: MainMenuMGR. Start() executed Successfully.");
     }
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -167,11 +162,6 @@ public class MainMenuMGR : MonoBehaviour
         SettingsCVS.gameObject.SetActive(false);
         QuitConfirmationCVS.gameObject.SetActive(false);
         NewUserCVS.gameObject.SetActive(false);
-        ErrorCanvasProfileCreation.gameObject.SetActive(false);
-        ErrorCanvasProfileCreation2.gameObject.SetActive(false);
-        UserAddedPrompt.gameObject.SetActive(false);
-
-
     }
 
     public void Quit()
