@@ -16,7 +16,7 @@ public class PlayerProfileButton : MonoBehaviour
     Canvas newPlayerCanvas;
 
     [SerializeField]
-    PlayerData
+    PlayerProfileInfo currentPlayerInfo;
 
     private void Awake()
     {
@@ -85,4 +85,11 @@ public class PlayerProfileButton : MonoBehaviour
             newPlayerCanvas.gameObject.SetActive(true);
         }
     }
+
+    public void UserSelected()
+    {
+        currentPlayerInfo.PlayerName = playerName;
+        currentPlayerInfo.ProfileID = profileID;
+    }
+
 }

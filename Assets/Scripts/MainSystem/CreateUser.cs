@@ -21,56 +21,65 @@ public class CreateUser : MonoBehaviour
 
         if (cw_profiles.Count < maxProfileCount)
         {
-            string insert = "INSERT INTO Profile (PlayerName) ";
-            string vals = "VALUES (\"" + ""+ newPlayerName.text +  "\");";
+            if (newPlayerName.text == "")
+            {
+                Debug.LogError("Error: New Player name cant be empty string.");
+            }
+            else
+            {
 
-            /// Fix this to prevent SQL injection attack later.
-            IDbCommand dbcmd = DatabaseConnection.CWdatabase.CreateCommand();
-            dbcmd.CommandText = insert + vals;
 
-            // Inserting into the Database 
-            dbcmd.ExecuteNonQuery();
+                string insert = "INSERT INTO Profile (PlayerName) ";
+                string vals = "VALUES (\"" + "" + newPlayerName.text + "\");";
 
-            //Raise a flag to show Profile table was updated.
-            DatabaseConnection.db_updated["Profile"] = true;
+                /// Fix this to prevent SQL injection attack later.
+                IDbCommand dbcmd = DatabaseConnection.CWdatabase.CreateCommand();
+                dbcmd.CommandText = insert + vals;
 
-            //Fetch the ProfileID of the newly inserted Player 
-            string table = "FROM Profile ";
-            string select = "SELECT ProfileID ";
-            string condition = "WHERE PlayerName = \"" + newPlayerName.text + "\";";
+                // Inserting into the Database 
+                dbcmd.ExecuteNonQuery();
 
-            dbcmd.Dispose();
-            dbcmd = DatabaseConnection.CWdatabase.CreateCommand();
-            dbcmd.CommandText = select + table + condition;
+                //Raise a flag to show Profile table was updated.
+                DatabaseConnection.db_updated["Profile"] = true;
 
-            IDataReader reader = dbcmd.ExecuteReader();
-            reader.Read();
+                //Fetch the ProfileID of the newly inserted Player 
+                string table = "FROM Profile ";
+                string select = "SELECT ProfileID ";
+                string condition = "WHERE PlayerName = \"" + newPlayerName.text + "\";";
 
-            NewPlayer.PlayerName = newPlayerName.text;
-            NewPlayer.ProfileID = reader.GetInt32(0);
+                dbcmd.Dispose();
+                dbcmd = DatabaseConnection.CWdatabase.CreateCommand();
+                dbcmd.CommandText = select + table + condition;
 
-            reader.Close();
-            reader = null;
+                IDataReader reader = dbcmd.ExecuteReader();
+                reader.Read();
 
-            Debug.Log(NewPlayer.ProfileID.ToString() + " : " + NewPlayer.PlayerName);
+                NewPlayer.PlayerName = newPlayerName.text;
+                NewPlayer.ProfileID = reader.GetInt32(0);
 
-            insert = "INSERT INTO ProfilePreferences (ProfileID) ";
-            vals = "VALUES (" + NewPlayer.ProfileID.ToString() + ");";
-                
-            /// Fix this to prevent SQL injection attack later.
-            dbcmd.Dispose();
-            dbcmd = DatabaseConnection.CWdatabase.CreateCommand();
-            dbcmd.CommandText = insert + vals;
+                reader.Close();
+                reader = null;
 
-            // Inserting into the Database 
-            dbcmd.ExecuteNonQuery();
+                Debug.Log(NewPlayer.ProfileID.ToString() + " : " + NewPlayer.PlayerName);
 
-            //Raise a flag to show ProfilePreferences table was updated.
-            DatabaseConnection.db_updated["ProfilePreferences"] = true;
+                insert = "INSERT INTO ProfilePreferences (ProfileID) ";
+                vals = "VALUES (" + NewPlayer.ProfileID.ToString() + ");";
 
-            dbcmd.Dispose();
-            dbcmd = null;
-            NewPlayer = null;
+                /// Fix this to prevent SQL injection attack later.
+                dbcmd.Dispose();
+                dbcmd = DatabaseConnection.CWdatabase.CreateCommand();
+                dbcmd.CommandText = insert + vals;
+
+                // Inserting into the Database 
+                dbcmd.ExecuteNonQuery();
+
+                //Raise a flag to show ProfilePreferences table was updated.
+                DatabaseConnection.db_updated["ProfilePreferences"] = true;
+
+                dbcmd.Dispose();
+                dbcmd = null;
+                NewPlayer = null;
+            }
         }
     }
 }

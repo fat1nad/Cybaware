@@ -882,6 +882,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 100188302}
+        m_MethodName: UserSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &100188300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,6 +944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 293492204}
   newPlayerCanvas: {fileID: 456626444}
+  currentPlayerInfo: {fileID: 1722010761}
 --- !u!1 &125973621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2867,7 +2879,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 1
       - m_Target: {fileID: 519420030}
-        m_MethodName: ToMainMenu
+        m_MethodName: ProfileSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5579,6 +5591,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 758688795}
+        m_MethodName: UserSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &758688793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5630,6 +5653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 289169980}
   newPlayerCanvas: {fileID: 456626444}
+  currentPlayerInfo: {fileID: 1722010761}
 --- !u!1 &816441024
 GameObject:
   m_ObjectHideFlags: 0
@@ -8308,6 +8332,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 1200580807}
+        m_MethodName: UserSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1200580804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8379,6 +8414,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 1867734057}
   newPlayerCanvas: {fileID: 456626444}
+  currentPlayerInfo: {fileID: 1722010761}
 --- !u!1 &1209375275
 GameObject:
   m_ObjectHideFlags: 0
@@ -10737,6 +10773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1722010760}
+  - component: {fileID: 1722010761}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -10758,6 +10795,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1722010761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722010759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81cafefc8cfef74287ac5bac9bd5299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: 
+  profileID: 0
 --- !u!1 &1729260503
 GameObject:
   m_ObjectHideFlags: 0
@@ -12918,6 +12969,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 2022187967}
+        m_MethodName: UserSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &2022187964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12989,6 +13051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 683231927}
   newPlayerCanvas: {fileID: 456626444}
+  currentPlayerInfo: {fileID: 1722010761}
 --- !u!1 &2047304987
 GameObject:
   m_ObjectHideFlags: 0
@@ -13511,6 +13574,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 2059493173}
+        m_MethodName: UserSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &2059493171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13562,6 +13636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 608529312}
   newPlayerCanvas: {fileID: 456626444}
+  currentPlayerInfo: {fileID: 1722010761}
 --- !u!224 &2075095611 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 929010532686129749, guid: 464aa722af092dc43b004647659a2ed4,
