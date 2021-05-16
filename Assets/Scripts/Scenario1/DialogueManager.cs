@@ -12,15 +12,15 @@ public class DialogueManager : MonoBehaviour
 
 {
     public bool dialogueRunning;
-
     public Text dialogueText;
-    public Animator dialogueBoxAnimator;
-
+    
+    private Animator dialogueBoxAnimator;
     private Queue<string> sentences; // A queue that holds a dialogue's
                                      // individual sentences
 
-    void Awake()
+    void Start()
     {
+        dialogueBoxAnimator = GetComponent<Animator>();
         sentences = new Queue<string>();
         dialogueRunning = false;
     }
