@@ -1,13 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerProfileInfo : MonoBehaviour
 {
-    [SerializeField]
     string playerName;
-    [SerializeField]
     int profileID;
+
+    [SerializeField]
+    TextMeshProUGUI displayName;
+
+    private void Update()
+    {
+        if (displayName.text != playerName)
+        {
+            displayName.text = playerName;
+        }
+    }
+
 
     public string PlayerName 
     {

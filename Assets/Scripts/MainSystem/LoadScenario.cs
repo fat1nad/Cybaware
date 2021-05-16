@@ -3,33 +3,57 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.IO;
-
+using TMPro;
+using UnityEngine.UI;
 public class LoadScenario : MonoBehaviour
 {
-
     [SerializeField]
-    string sceneName;
-    public void LoadScenario1()
+    Image fadeBG;
+
+    bool faded = false;
+
+    TextMeshProUGUI sceneName;
+
+    private void Start()
     {
-        SceneManager.LoadScene(sceneName);
+        sceneName = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        Debug.Log(sceneName.text);
     }
 
-    public void LoadScenario2()
+    private void Update()
     {
-        string assetLocation = Path.Combine(Application.streamingAssetsPath, sceneName);
-        AssetBundle scenario2 = AssetBundle.LoadFromFile(assetLocation);
-        
-        if (scenario2 == null)
+        if (faded == true && fadeBG.color.a < 1f)
         {
-            Debug.Log("Failed to load AssetBundle!");
-            return;
-        }
+            fadeBG.transform.SetAsLastSibling();
+            fadeBG.color = new Color(fadeBG.color.r, fadeBG.color.g, fadeBG.color.b, fadeBG.color.a + 0.025f);
 
-        if (scenario2.isStreamedSceneAssetBundle)
+
+            if (fadeBG.color.a >= 1f)
+            {
+                Debug.Log("BG Faded.");
+                LoadScene();
+            }
+        }
+    }
+
+    public void LoadScene()
+    {
+        if (faded == false)
         {
-            string[] scenePaths = scenario2.GetAllScenePaths();
-            string sceneName = Path.GetFileNameWithoutExtension(scenePaths[0]);
-            SceneManager.LoadScene(sceneName);
+            faded = true;
+        }
+        else if (faded == true)
+        {
+            faded = false;
+
+            Scene loadedScene = SceneManager.LoadScene(sceneName.text, new LoadSceneParameters(LoadSceneMode.Single));
+
+            if (loadedScene.isLoaded)
+            {
+                fadeBG.transform.SetAsFirstSibling();
+                fadeBG.color = new Color(fadeBG.color.r, fadeBG.color.g, fadeBG.color.b, 0f);
+            }
+
         }
     }
 }
