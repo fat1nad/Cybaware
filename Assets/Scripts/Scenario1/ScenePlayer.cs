@@ -21,22 +21,27 @@ public class ScenePlayer : MonoBehaviour
     public Dialogue endSecondSceneDialogue;
     public CanvasGroup browserCanvasGroup;
 
+    private PlayableDirector pd;
+
     private bool secondCutscenePlayed;
 
     void Start()
     {
         secondCutscenePlayed = false;
-        PlayFirstCutscene();
+        pd = GetComponent<PlayableDirector>();
+
+        StartCoroutine(FirstCutscene());
     }
 
-    public void PlayFirstCutscene()
+    IEnumerator FirstCutscene()
     {
-        StartCoroutine(WaitFor(1)); // waiting for 1 second
+        yield return new WaitForSeconds(1);
 
         dialogueManager.StartDialogue(livingRoomSceneDialogue);
+
         while (dialogueManager.dialogueRunning)
         {
-            StartCoroutine(WaitFor()); // waiting a single frame
+            yield return null; // waiting a single frame
         }
 
         bedroomScene.SetActive(true); // enabling all objects required by
@@ -44,19 +49,20 @@ public class ScenePlayer : MonoBehaviour
         bedroomScene.GetComponent<Animator>().SetTrigger("FadeInTrigger");
         // running fading in animation on all of them
 
-        StartCoroutine(WaitFor(2));
+        yield return new WaitForSeconds(2);
 
         livingRoomScene.SetActive(false); // disabling all objects required by
                                           // living room scene as they are no
                                           // longer needed
 
         dialogueManager.StartDialogue(bedroomSceneDialogue);
+
         while (dialogueManager.dialogueRunning)
         {
-            StartCoroutine(WaitFor());
+            yield return null;
         }
 
-        bedroomScene.GetComponent<CanvasGroup>().interactable = true; 
+        bedroomScene.GetComponent<CanvasGroup>().interactable = true;
         // enabling interaction at the end of First Scene
     }
 
@@ -64,35 +70,26 @@ public class ScenePlayer : MonoBehaviour
     {
         if (!secondCutscenePlayed)
         {
-            GetComponent<PlayableDirector>().Play();
             secondCutscenePlayed = true;
-
-            StartCoroutine(WaitFor(1));
-
-            dialogueManager.StartDialogue(endSecondSceneDialogue);
-            while (dialogueManager.dialogueRunning)
-            {
-                StartCoroutine(WaitFor());
-            }
-
-            browserCanvasGroup.interactable = true;
+            StartCoroutine(SecondCutscene());
         }
     }
 
-    IEnumerator WaitFor(int seconds = 0)
-    /* This function is used for simple time delays
-     */
+    IEnumerator SecondCutscene()
     {
-        if (seconds <= 0)
+        pd.Play();
+        yield return new WaitForSeconds((float)pd.duration);
+
+        dialogueManager.StartDialogue(endSecondSceneDialogue);
+        while (dialogueManager.dialogueRunning)
         {
             yield return null; // waiting a single frame
         }
-        else
-        {
-            yield return new WaitForSeconds(seconds); // waiting for
-                                                      // 'seconds' seconds
-        }
+
+        browserCanvasGroup.interactable = true;
     }
+
+
 }
 
 

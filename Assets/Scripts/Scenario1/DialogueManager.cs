@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
     private Animator dialogueBoxAnimator;
     private Queue<string> sentences; // A queue that holds a dialogue's
                                      // individual sentences
+    private Coroutine currentTypeSentence; // the current sentence typing
+                                           // coroutine
 
     void Start()
     {
@@ -62,11 +64,12 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        StopAllCoroutines(); // stopping any previously running sentence -
-                             // stopping TypeSentence function if running
-        StartCoroutine(TypeSentence(sentences.Dequeue())); // displaying next
-                                                           // sentence with the
-                                                           // required delays
+        if (currentTypeSentence != null) // if any previous sentence is running
+        {
+            StopCoroutine(currentTypeSentence); // stopping the typing
+        }
+        currentTypeSentence = StartCoroutine(TypeSentence(sentences.Dequeue()));
+        // typing next sentence
     }
 
     IEnumerator TypeSentence(string sentence)
