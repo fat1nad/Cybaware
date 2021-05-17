@@ -20,6 +20,8 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         score = 0;
+        scoreText.text = "Score: " + score.ToString(); // displaying
+                                                       // score
     }
 
     public void AddPosInteraction(string learningOutcome)

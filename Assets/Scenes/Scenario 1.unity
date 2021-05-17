@@ -1387,7 +1387,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: https://websearch.com
+  m_Text: https://fakebook.com
 --- !u!222 &321161642
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2536,7 +2536,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 44807f9b2f018c8459af661f85c3c811, type: 3}
+    m_Font: {fileID: 12800000, guid: 040deb1fbaef9ef4da6cbffe9e85dad1, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -5447,7 +5447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1561611654
 MonoBehaviour:
   m_ObjectHideFlags: 0
