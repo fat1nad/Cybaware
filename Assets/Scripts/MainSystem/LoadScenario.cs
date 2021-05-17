@@ -17,7 +17,6 @@ public class LoadScenario : MonoBehaviour
     private void Start()
     {
         sceneName = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        Debug.Log(sceneName.text);
     }
 
     private void Update()

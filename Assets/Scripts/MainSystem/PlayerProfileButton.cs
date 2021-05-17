@@ -88,8 +88,8 @@ public class PlayerProfileButton : MonoBehaviour
 
     public void UserSelected()
     {
-        currentPlayerInfo.PlayerName = playerName;
-        currentPlayerInfo.ProfileID = profileID;
+        PlayerProfileInfo.PlayerName = playerName;
+        PlayerProfileInfo.ProfileID = profileID;
     }
 
 }

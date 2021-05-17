@@ -5,11 +5,17 @@ using TMPro;
 
 public class PlayerProfileInfo : MonoBehaviour
 {
-    string playerName;
-    int profileID;
+
+    static string playerName;
+    static int profileID;
 
     [SerializeField]
     TextMeshProUGUI displayName;
+
+    private void Start()
+    {
+        DontDestroyOnLoad(transform.gameObject);
+    }
 
     private void Update()
     {
@@ -20,7 +26,7 @@ public class PlayerProfileInfo : MonoBehaviour
     }
 
 
-    public string PlayerName 
+    public static string PlayerName 
     {
         get
         {
@@ -35,7 +41,7 @@ public class PlayerProfileInfo : MonoBehaviour
         }
     }
 
-    public int ProfileID
+    public static int ProfileID
     {
         get
         {
