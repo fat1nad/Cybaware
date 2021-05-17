@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using Fungus;
+using UnityEngine.SceneManagement;
+
+
 public class Scenario2Manager : MonoBehaviour
 {
     [SerializeField]
@@ -16,19 +19,46 @@ public class Scenario2Manager : MonoBehaviour
     int profileID;
 
     [SerializeField]
-    Character mainPlayer;
+    Canvas PauseCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
         playerName = PlayerProfileInfo.PlayerName;
         profileID = PlayerProfileInfo.ProfileID;
+        PlayerProfileInfo.ScenarioID = 2;
+
         location.text = "Airport";
+
+        PauseCanvas.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
     }
+
+    private void PauseGame()
+    {
+        if (PauseCanvas.gameObject.activeSelf)
+        {
+            Time.timeScale = 1.0f;
+            PauseCanvas.gameObject.SetActive(false);
+        }
+
+        else if (!PauseCanvas.gameObject.activeSelf)
+        {
+            Time.timeScale = 0.0f;
+            PauseCanvas.gameObject.SetActive(true);
+        }
+    }
+
+    public void QuitScenario()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }

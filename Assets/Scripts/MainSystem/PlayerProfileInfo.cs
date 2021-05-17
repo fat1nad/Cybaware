@@ -8,6 +8,7 @@ public class PlayerProfileInfo : MonoBehaviour
 
     static string playerName;
     static int profileID;
+    static int scenarioID; //Represents which scenario is being played right now. Updated in Load Scenari.
 
     [SerializeField]
     TextMeshProUGUI displayName;
@@ -24,7 +25,6 @@ public class PlayerProfileInfo : MonoBehaviour
             displayName.text = playerName;
         }
     }
-
 
     public static string PlayerName 
     {
@@ -56,4 +56,17 @@ public class PlayerProfileInfo : MonoBehaviour
         }
     }
 
+    public static int ScenarioID
+    {
+        get
+        {
+            return scenarioID;
+        }
+        set
+        {
+            // add constraints here/ 
+            scenarioID = value;
+        }
+    }
 }
+

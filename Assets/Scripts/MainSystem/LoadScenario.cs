@@ -46,7 +46,7 @@ public class LoadScenario : MonoBehaviour
             faded = false;
 
             Scene loadedScene = SceneManager.LoadScene(sceneName.text, new LoadSceneParameters(LoadSceneMode.Single));
-
+                
             if (loadedScene.isLoaded)
             {
                 fadeBG.transform.SetAsFirstSibling();
