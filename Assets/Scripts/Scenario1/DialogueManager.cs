@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
-/*  This class is a central dialogue managment system for Scenario 1. It runs 
+/*  This class is the central dialogue managment system for Scenario 1. It runs 
  *  any dialogues passed to it on any dialogue box of choice.
  */
 
@@ -53,7 +53,7 @@ public class DialogueManager : MonoBehaviour
         DisplayNextSentence();
     }
 
-    public void DisplayNextSentence()
+    private void DisplayNextSentence()
     /*  This function displays the next sentence in the dialogue (or the next 
      *  sentence to dequeue in sentences queue).
      */
@@ -84,11 +84,21 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void EndDialogue()
+    private void EndDialogue()
     {
         dialogueBoxAnimator.SetBool("isOpen", false); // fading out dialogue
                                                       // box and text
         dialogueRunning = false;
+    }
+
+    public void HaltDialogue()
+    {
+        sentences.Clear(); // emptying queue of any sentences from the previous
+                           // dialogue
+
+        StopCoroutine(currentTypeSentence); // stopping the typing
+
+        EndDialogue();
     }
 
 

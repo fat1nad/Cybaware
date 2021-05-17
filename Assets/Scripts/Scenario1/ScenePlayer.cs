@@ -20,9 +20,10 @@ public class ScenePlayer : MonoBehaviour
     // all objects required for Second Cutscene
     public Dialogue endSecondSceneDialogue;
     public CanvasGroup browserCanvasGroup;
+    public GameObject scoreBox;
+    public GameObject budgetBox;
 
     private PlayableDirector pd;
-
     private bool secondCutscenePlayed;
 
     void Start()
@@ -78,7 +79,7 @@ public class ScenePlayer : MonoBehaviour
     IEnumerator SecondCutscene()
     {
         pd.Play();
-        yield return new WaitForSeconds((float)pd.duration);
+        yield return new WaitForSeconds((float)pd.duration); 
 
         dialogueManager.StartDialogue(endSecondSceneDialogue);
         while (dialogueManager.dialogueRunning)
@@ -87,6 +88,8 @@ public class ScenePlayer : MonoBehaviour
         }
 
         browserCanvasGroup.interactable = true;
+        scoreBox.SetActive(true);
+        budgetBox.SetActive(true);
     }
 
 
