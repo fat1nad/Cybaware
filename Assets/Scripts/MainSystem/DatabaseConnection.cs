@@ -28,6 +28,9 @@ public class DatabaseConnection : MonoBehaviour
     /// </summary>
     private void Awake()
     {
+        Debug.Log(Application.persistentDataPath);
+        Debug.Log(Application.dataPath);
+
         db_connected = Connect();
         
         db_table_names = new List<string>();
@@ -48,7 +51,7 @@ public class DatabaseConnection : MonoBehaviour
 
     static bool Connect()
     {
-        string connection_string = "URI=file:" + Application.dataPath + "/CWDB.db"; //Path to database.
+        string connection_string = "URI=file:" + Application.dataPath + "/StreamingAssets/CWDB.db"; //Path to database.
 
         CWdatabase = (IDbConnection)new SqliteConnection(connection_string);
         CWdatabase.Open(); //Open connection to the database.
