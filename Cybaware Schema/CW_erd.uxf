@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>14</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>714</x>
+      <y>154</y>
+      <w>294</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>**ProfilePreferences**
+--
+*ProfileID (FK)(PK) : int*
+MusicVolume : int
+SFXVolume : int
+// Leave it this way for scalability 
+// In case we add more preferences
+bg=yellow
+fg=dark_gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>266</x>
+      <y>154</y>
+      <w>294</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+**Profile**
+--
+**ProfileID (PK) : int**
+PlayerName : String 
+
+fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>266</x>
+      <y>742</y>
+      <w>294</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+**Scenario**
+--
+**ScenarioID (PK) : string**
+ScenarioName : string
+Description : string 
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>196</y>
+      <w>196</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>714</x>
+      <y>434</y>
+      <w>294</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+**Events**
+--
+**EventID (PK) : int**
+/ProfileID (FK) : int/
+/ScenarioID (FK): int/
+/OutcomeID (FK): int/
+Timestamp : Datetime
+EventDesc : string
+UserInput : string 
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>392</x>
+      <y>616</y>
+      <w>56</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>266</y>
+      <w>434</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>280.0;120.0;280.0;70.0;10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>532</y>
+      <w>196</w>
+      <h>308</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>120.0;10.0;80.0;10.0;80.0;190.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>714</x>
+      <y>742</y>
+      <w>294</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+**LearningOutcome**
+--
+**OutcomeID (PK) : string**
+OutcomeDesc : string
+/ScenarioID (FK): string/
+InitialThreshold : float
+FinalThreshold : float
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>826</y>
+      <w>196</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>826</x>
+      <y>616</y>
+      <w>56</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=n</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>392</x>
+      <y>266</y>
+      <w>56</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=n
+m2=1</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>238</x>
+      <y>28</y>
+      <w>1148</w>
+      <h>896</h>
+    </coordinates>
+    <panel_attributes>*CYBAWARE*
+bg=cyan
+fg=dark_gray
+
+layer=-1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>266</x>
+      <y>434</y>
+      <w>294</w>
+      <h>196</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+**Savefile**
+--
+**Savefilename (PK) : string**
+/ScenarioID (FK) : int/
+/ProfileID (FK) : int/
+
+
+layer=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1050</x>
+      <y>252</y>
+      <w>294</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
+**PlayerOutcomeAssessment**
+--
+**OutcomeID (PK) : int**
+**PlayerID (PK)(FK): int**
+InitialScore : float
+FinalScore : float
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>504</x>
+      <y>266</y>
+      <w>574</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=n</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0;390.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>994</x>
+      <y>378</y>
+      <w>322</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1
+m2=n</panel_attributes>
+    <additional_attributes>10.0;320.0;200.0;320.0;200.0;10.0</additional_attributes>
+  </element>
+</diagram>
